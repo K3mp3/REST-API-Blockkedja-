@@ -1,3 +1,7 @@
+import { MINE_RATE } from "../utilities/config.mjs";
+import { createHash } from "../utilities/hash.mjs";
+import { GENESIS } from "./genesis.mjs";
+
 export default class Block {
   constructor({ timestamp, hash, prevHash, data, nonce, difficulty }) {
     this.timestamp = timestamp;
