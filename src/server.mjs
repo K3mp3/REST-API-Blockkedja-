@@ -1,20 +1,25 @@
-import { app } from './app.mjs';
+import { app } from "./app.mjs";
+import Blockchain from "./models/blockchain.mjs";
+import blockchainRoutes from "./routes/blockchain-routes.mjs";
+
+export const blockChain = new Blockchain();
 
 const DEFAULT_PORT = 3000;
 const ROOT_NODE = `http://localhost:${DEFAULT_PORT}`;
 let NODE_PORT;
 
+app.use("/api/blocks/", blockchainRoutes);
 
 const synchronize = async () => {
   const response = await fetch(`${ROOT_NODE}/api/blocks`);
   if (response) {
     const result = await response.json();
-    console.log('Replacing chain on sync with:', result.data.chain);
+    console.log("Replacing chain on sync with:", result.data.chain);
     blockChain.replaceChain(result.data.chain);
   }
 };
 
-if (process.env.GENERATE_NODE_PORT === 'true') {
+if (process.env.GENERATE_NODE_PORT === "true") {
   NODE_PORT = DEFAULT_PORT + Math.ceil(Math.random() * 1000);
 }
 

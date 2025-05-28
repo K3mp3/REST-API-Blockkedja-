@@ -1,0 +1,42 @@
+[
+  {
+    "timestamp": 1000,
+    "hash": "genesis-hash",
+    "prevHash": "---",
+    "data": [],
+    "nonce": 0,
+    "difficulty": 3
+  },
+  {
+    "timestamp": 1748428393831,
+    "hash": "00f77435d46b610324d7d1d14fa4af6ecc4ec6b358cc306ab894bf0c70ebb048",
+    "prevHash": "genesis-hash",
+    "data": {
+      "message": "test data",
+      "sender": "Melvin",
+      "amount": 200
+    },
+    "nonce": 136,
+    "difficulty": 2
+  },
+  {
+    "timestamp": 1748428393841,
+    "hash": "000ceadc38e2afd1a179d3270c11c45c28bfe5be7f0e7be58817ecbbd533e976",
+    "prevHash": "00f77435d46b610324d7d1d14fa4af6ecc4ec6b358cc306ab894bf0c70ebb048",
+    "data": {
+      "message": "block 2"
+    },
+    "nonce": 2063,
+    "difficulty": 3
+  }
+]  }
+]   "timestamp": 1748428393717,
+    "hash": "00008252ceb58f47c122a37b5c6a69a725aa354228b38c158fca031d973cc831",
+    "prevHash": "00036d1650cf6511bee26ce2910cf110ca5790930b56084e692d7fbbf6de92ed",
+    "data": {
+      "message": "block 3"
+    },
+    "nonce": 66410,
+    "difficulty": 4
+  }
+]

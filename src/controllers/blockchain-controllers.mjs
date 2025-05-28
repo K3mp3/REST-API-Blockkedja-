@@ -1,4 +1,4 @@
-import { blockChain, server } from "../server.mjs";
+import { blockChain } from "../server.mjs";
 
 export const listAllBlocks = (req, res) => {
   res.status(200).json({ success: true, data: blockChain });
@@ -8,8 +8,6 @@ export const addBlock = (req, res) => {
   const { data } = req.body;
 
   blockChain.addBlock({ data });
-
-  server.broadcast();
 
   res
     .status(201)

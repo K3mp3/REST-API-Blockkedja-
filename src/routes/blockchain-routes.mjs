@@ -7,6 +7,6 @@ import {
 const routes = Router();
 
 routes.get("/", listAllBlocks);
-routes.post("/mine", add);
+routes.post("/mine", addBlock);
 
 export default routes;
