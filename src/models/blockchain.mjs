@@ -1,5 +1,6 @@
 import { readFile, writeFile } from "fs/promises";
 import { createHash } from "../utilities/hash.mjs";
+import { logError } from "../utilities/logger.mjs";
 import Block from "./block.mjs";
 
 export default class Blockchain {
@@ -16,6 +17,7 @@ export default class Blockchain {
         this.chain = parsedData;
       }
     } catch (error) {
+      await logError("Could not read blockchain.json", error);
       console.log(
         "No existing blockchain file found, starting with genesis block"
       );
@@ -26,6 +28,7 @@ export default class Blockchain {
     try {
       await writeFile("blockchain.json", JSON.stringify(this.chain, null, 2));
     } catch (error) {
+      await logError("Could not save blockchain.json", error);
       console.error("Error saving blockchain to file:", error);
     }
   }
