@@ -6,7 +6,7 @@ import { GENESIS } from "./genesis.mjs";
 
 describe("Block", () => {
   const data = [1, 2, 3, 4, 5, 6];
-  const timestamp = Date.now(); // Fixed: use numeric timestamp for consistency
+  const timestamp = Date.now();
   const hash = "current-hash";
   const prevHash = "prev-hash";
   const nonce = 5;
@@ -26,7 +26,7 @@ describe("Block", () => {
       expect(block.timestamp).toBe(timestamp);
       expect(block.hash).toBe(hash);
       expect(block.prevHash).toBe(prevHash);
-      expect(block.data).toEqual(data); // Fixed: was mockData
+      expect(block.data).toEqual(data);
       expect(block.nonce).toBe(nonce);
       expect(block.difficulty).toBe(difficulty);
     });
@@ -38,11 +38,11 @@ describe("Block", () => {
     });
 
     it("Should have a correct hash", () => {
-      expect(block.hash).toEqual(hash); // Fixed: was currentHash
+      expect(block.hash).toEqual(hash);
     });
 
     it("Should set the prevHash to the hash of previous block", () => {
-      expect(block.prevHash).toEqual(prevHash); // Fixed: was lastHash
+      expect(block.prevHash).toEqual(prevHash);
     });
 
     it("Should set the data property", () => {
@@ -65,11 +65,11 @@ describe("Block", () => {
   describe("mineblock() function", () => {
     const previousBlock = Block.createGenesisBlock();
     const data = [9, 23, 6, 78];
-    const mined = Block.mine({ lastBlock: previousBlock, data }); // Fixed: changed previousBlock to lastBlock
+    const mined = Block.mine({ lastBlock: previousBlock, data });
 
     it("Should mine a block with correct data and difficulty", () => {
       expect(mined instanceof Block).toBeTruthy();
-      expect(mined.prevHash).toEqual(previousBlock.hash); // Fixed: was lastBlock.hash
+      expect(mined.prevHash).toEqual(previousBlock.hash);
       expect(mined.data).toEqual(data);
       expect(mined.timestamp).not.toEqual(undefined);
     });
@@ -91,7 +91,6 @@ describe("Block", () => {
       );
     });
 
-    // Kontrollera så att justeringen av difficulty görs på rätt sätt...
     it("should adjust the difficulty level", () => {
       const results = [
         previousBlock.difficulty + 1,
